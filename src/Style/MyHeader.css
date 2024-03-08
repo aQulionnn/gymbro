@@ -1,0 +1,57 @@
+
+:root{
+  --blue: #003f88;
+  --light-blue: #0077b6;
+  --gray: #6c757d;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+}
+
+.container{
+  padding: 0px 50px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  max-width: 225px;
+  background-color: transparent;
+  color: var(--gray);
+}
+
+.buttons{
+  display: flex;
+  gap: 50px;
+  margin-top: 15px;
+}
+
+button:focus{
+  color: var(--blue);
+  font-weight: 900;
+}
+
+button:hover, h2:hover{
+  cursor: url('../static/svg/double-click.png'), auto;
+}
+
+.icon{
+  text-align: center;
+}
+
+h2{
+  font-size: 30px;
+  color: var(--light-blue);
+}
+
+h2::first-letter{
+  font-size: 40px;
+  color: var(--blue);
+}
