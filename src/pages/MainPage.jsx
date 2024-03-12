@@ -32,15 +32,18 @@ function MainPage() {
         <CircularProgress />
       ) : (
         <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
-          {posts.map((post, index) => (
+          {posts.map((post) => (
             <div style={{boxShadow: '0px 0px 20px 2px rgba(0,0,0,0.2)', borderRadius:'15px', overflow:'hidden'}}>
-              <MyPost title={post.title} text={post.text} 
-              photo={"https://localhost:7209/api/File/"+post.photo}/>
+              <MyPost 
+                id={post.id}
+                title={post.title} 
+                text={post.text} 
+                photo={post.photo}
+              />
             </div>
           ))}
         </div>
-      )}
-      
+      )}   
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { getVideos } from '../request';
+import MyHeader from '../components/MyHeader';
+import MyVideo from '../components/MyVideo';
+import { CircularProgress } from '@mui/material';
 
 function VideoPage() {
   const [videos, setVideos] = useState([])
@@ -22,15 +25,19 @@ function VideoPage() {
 
   return (
     <div>
-      <Header />
-      {videos.map(() => (
-        <div>
-          <video width="320" height="240" controls={true}>
-            <source src={videos.urlVideo} type="video/mp4"/>
-          </video>
-        </div>
-      ))}
-      </div>
+      <MyHeader />
+      {loading ?
+       ( <CircularProgress /> ) : 
+       ( 
+          <div style={{
+            display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
+            {videos.map((video) => (
+              <MyVideo key={video.id} desc={video.desc} title={video.title}/>
+            ))}
+          </div>
+        )
+     } 
+    </div>
   )
 }
 
