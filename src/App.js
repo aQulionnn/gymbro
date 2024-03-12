@@ -6,7 +6,6 @@ import VideoPage from "./pages/VideoPage";
 import SportsNutritionPage from "./pages/SportsNutritionPage";
 import LoginPage from "./pages/LoginPage";
 import MainAdminPage from "./pages/MainAdminPage";
-import PostAdminPage from "./pages/PostAdminPage";
 import SportsNutritionAdminPage from "./pages/SportsNutritionAdminPage";
 import VideoAdminPage from "./pages/VideoAdminPage";
 import SportProductPage from "./pages/SportProductPage";
@@ -24,7 +23,6 @@ function App() {
           <Route path='/products' element={<SportProductPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/admin" element={<MainAdminPage/>}/>
-          <Route path="/admin/post/:postid" element={<PostAdminPage/>}/>
           <Route path="/admin/sportpit" element={<SportsNutritionAdminPage/>}/>
           <Route path="/admin/videos" element={<VideoAdminPage/>}/>
           <Route path='/admin/products' element={<SportProductAdminPage/>}/>
