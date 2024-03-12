@@ -15,6 +15,11 @@ export const getSportsNutrition = async () => {
   return response.data
 }
 
+export const getSportPoducts = async () => {
+  const response = await axios.get('https://localhost:7209/api/Product/all/products')
+  return response.data
+}
+
 export const getVideos = async () => {
   const response = await axios.get('https://localhost:7209/api/Tutorial')
   return response.data

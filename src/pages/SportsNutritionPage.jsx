@@ -3,6 +3,8 @@ import { Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress,
 import Header from '../components/Header';
 import { getPosts, getSportsNutrition } from '../request';
 import { useNavigate } from 'react-router-dom';
+import MyHeader from '../components/MyHeader';
+import MySportsNutrition from '../components/MySportsNutrition';
 
 
 
@@ -27,30 +29,23 @@ function SportsNutritionPage() {
 
   return (
     <div>
-      <Header />
+      <MyHeader />
       {loading ? (
         <CircularProgress />
       ) : (
-        products.map((product, index) => (
-          <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-          <CardMedia
-          component="img"
-          height="140"
-          image={'https://localhost:7209/api/File/'+product.photo}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.desc}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-        ))
+        <div style={{
+              display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
+          {products.map((product, index) => (
+            <div style={{boxShadow: '0px 0px 20px 2px rgba(0,0,0,0.2)', borderRadius:'15px', overflow:'hidden'}}>
+              <MySportsNutrition 
+                name={product.name}
+                desc={product.desc}
+                price={product.price+' тг'}
+                photo={product.photo}
+              />
+            </div>
+          ))}
+        </div>   
       )}
     </div>
   );
