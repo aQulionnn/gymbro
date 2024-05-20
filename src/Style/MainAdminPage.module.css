@@ -1,0 +1,93 @@
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  margin-top: 25px;
+  font-family: 'Roboto';
+}
+
+.container{
+  width: 450px;
+  height: auto;
+  padding: 20px;
+  border: 2px solid #808080;
+}
+
+.top_section{
+  display: flex;
+  width: 450px;
+  gap: 10px;
+}
+
+.top_section h3{
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.btns{
+  width: 40px;
+  display: grid;
+  gap: 50%;
+}
+
+.add{
+  display: grid;
+  margin-left: 50px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #80b918;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.add_icon{
+  width: 20px;
+  height: 20px;
+  background: url('../static/svg/add.svg');
+  background-size: cover;
+}
+
+.add:hover, .delete:hover, .edit:hover{
+  cursor: pointer;
+}
+
+.delete{
+  display: grid;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  border-radius: 10px;
+  color: grey;
+  border: 2px solid grey;
+}
+
+.delete:hover{
+  color: red;
+  border: 2px solid red;
+}
+
+
+.edit{
+  display: grid;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #0000ff;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.edit_icon{
+  width: 20px;
+  height: 20px;
+  background: url('../static/svg/edit.svg');
+  background-size: cover;
+}
+

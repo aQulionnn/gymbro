@@ -1,6 +1,7 @@
 import { AppBar, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Header() {
     const navigate = useNavigate();

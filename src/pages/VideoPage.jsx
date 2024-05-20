@@ -32,7 +32,7 @@ function VideoPage() {
           <div style={{
             display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
             {videos.map((video) => (
-              <MyVideo key={video.id} desc={video.desc} title={video.title}/>
+              <MyVideo key={video.id} desc={video.desc} title={video.title} urlVideo={video.urlVideo}/>
             ))}
           </div>
         )

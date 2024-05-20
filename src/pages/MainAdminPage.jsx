@@ -11,6 +11,8 @@ import {
 import { addFile, addPost, deletePost, editPost, getPosts } from "../request";
 import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../components/HeaderAdmin";
+import style from '../Style/MainAdminPage.module.css'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function MainAdminPage() {
   const [posts, setPosts] = useState([]);
@@ -144,78 +146,36 @@ function MainAdminPage() {
   return (
     <div>
       <HeaderAdmin />
-      <Button
-        style={{
-          backgroundColor: "green",
-          color: "white",
-          border: "0px",
-          borderRadius: "5px",
-          width: "100px",
-          height: "30px",
-          margin: "10px",
-        }}
-        onClick={handleOpenModal}
-      >
-        Добавить
-      </Button>
-
+      <button className={style.add} onClick={handleOpenModal}>
+        <div className={style.add_icon}></div>
+      </button>
       {loading ? (
         <CircularProgress />
       ) : (
-        posts.map((post, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid #808080",
-              padding: "10px",
-              margin: "20px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              transition: "box-shadow 0.3s ease",
-              ":hover": {
-                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-              },
-            }}
-          >
-            <img
-              src={"https://localhost:7209/api/File/" + post.photo}
-              style={{ width: 200 }}
-            />
-            <Typography variant="h6">{post.title}</Typography>
-            <Typography>{post.text}</Typography>
-            <Button
-              style={{
-                backgroundColor: "red",
-                color: "white",
-                border: "0px",
-                borderRadius: "5px",
-                width: "100px",
-                height: "30px",
-                margin: "10px",
-              }}
-              onClick={() => handleDeletePost(post.id)}
-            >
-              Удалить
-            </Button>
-
-            <Button
-              style={{
-                backgroundColor: "blue",
-                color: "white",
-                border: "0px",
-                borderRadius: "5px",
-                width: "100px",
-                height: "30px",
-                margin: "10px",
-              }}
-              onClick={() => handleOpenEditModal(post)}
-            >
-              Изменить
-            </Button>
+        <div className={style.main}>
+        {posts.map((post, index) => (
+          <div  key={index} className={style.container}>
+            <div className={style.top_section}>
+              <img
+                src={"https://localhost:7209/api/File/" + post.photo}
+                style={{ width: 200, height: 200}}
+              />
+              <h3>{post.title}</h3>
+              <div className={style.btns}>
+                <button className={style.delete} onClick={() => handleDeletePost(post.id)}>
+                  {<DeleteIcon />}
+                </button>
+                <button className={style.edit} onClick={() => handleOpenEditModal(post)}>
+                  <div className={style.edit_icon}></div>
+                </button>
+              </div>
+            </div>
+            <hr/>
+            <p>{post.text}</p>
           </div>
-        ))
+        ))}
+        </div>
       )}
-
       <Modal
         open={openModal}
         onClose={handleCloseModal}
@@ -249,7 +209,7 @@ function MainAdminPage() {
             onChange={handleInputChange}
           />
           <textarea
-            style={{ overflow: "auto", width: "335px", height: "200px" }}
+            style={{ overflow: "auto", width: "392px", height: "200px" }}
             placeholder="Текст"
             value={newPost.text}
             onChange={(event) =>
@@ -323,7 +283,7 @@ function MainAdminPage() {
             }
           />
           <textarea
-            style={{ overflow: "auto", width: "335px", height: "200px" }}
+            style={{ overflow: "auto", width: "392px", height: "200px" }}
             placeholder="Текст"
             value={editedPost.text}
             onChange={(event) =>

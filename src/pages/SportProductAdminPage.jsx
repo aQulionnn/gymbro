@@ -20,6 +20,10 @@ import {
 } from "../request";
 import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../components/HeaderAdmin";
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import style from '../Style/SportProductAdminPage.module.css'
 
 function SportProductAdminPage() {
   const [products, setProducts] = useState([]);
@@ -162,77 +166,32 @@ function SportProductAdminPage() {
   return (
     <div>
       <HeaderAdmin />
-      <Button
-        style={{
-          backgroundColor: "green",
-          color: "white",
-          border: "0px",
-          borderRadius: "5px",
-          width: "100px",
-          height: "30px",
-          margin: "10px",
-        }}
-        onClick={handleOpenModal}
-      >
-        Добавить
-      </Button>
+      <button className={style['add']}onClick={handleOpenModal}>
+        <AddIcon />
+      </button>
 
       {loading ? (
         <CircularProgress />
       ) : (
-        products.map((product, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid #808080",
-              padding: "10px",
-              margin: "20px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              transition: "box-shadow 0.3s ease",
-              ":hover": {
-                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-              },
-            }}
-          >
-            <img
-              src={"https://localhost:7209/api/File/" + product.photo}
-              style={{ width: 200 }}
-            />
-            <Typography variant="h6">{product.name}</Typography>
-            <Typography>{product.desc}</Typography>
-            <Typography>{product.price + " тг"}</Typography>
-            <Button
-              style={{
-                backgroundColor: "red",
-                color: "white",
-                border: "0px",
-                borderRadius: "5px",
-                width: "100px",
-                height: "30px",
-                margin: "10px",
-              }}
-              onClick={() => handleDeleteProduct(product.id)}
-            >
-              Удалить
-            </Button>
-
-            <Button
-              style={{
-                backgroundColor: "blue",
-                color: "white",
-                border: "0px",
-                borderRadius: "5px",
-                width: "100px",
-                height: "30px",
-                margin: "10px",
-              }}
-              onClick={() => handleOpenEditModal(product)}
-            >
-              Изменить
-            </Button>
+        <div className={style.main}>
+        {products.map((product, index) => (
+          <div key={index} className={style['container']}>
+            <div className={style['top-section']}>
+              <button className={style.edit} onClick={() => handleOpenEditModal(product)}><EditIcon/></button>
+              <button className={style.delete} onClick={() => handleDeleteProduct(product.id)}><DeleteIcon/></button>
+            </div>
+            <div className={style['bottom-section']}>
+              <img
+                src={"https://localhost:7209/api/File/" + product.photo}
+                style={{ width: 200 }}
+              />
+              <h3>{product.name}</h3>
+              <p>{product.desc}</p>
+              <p>{product.price + ' тг'}</p>
+            </div>
           </div>
-        ))
+        ))}
+        </div>
       )}
 
       <Modal
@@ -268,7 +227,7 @@ function SportProductAdminPage() {
             onChange={handleInputChange}
           />
           <textarea
-            style={{ overflow: "auto", width: "335px", height: "200px" }}
+            style={{ overflow: "auto", width: "392px", height: "200px" }}
             placeholder="Описание"
             value={newProduct.desc}
             onChange={(event) =>
@@ -353,7 +312,7 @@ function SportProductAdminPage() {
             }
           />
           <textarea
-            style={{ overflow: "auto", width: "335px", height: "200px" }}
+            style={{ overflow: "auto", width: "392px", height: "200px" }}
             placeholder="Описание"
             value={editedProduct.desc}
             onChange={(event) =>

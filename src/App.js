@@ -10,6 +10,8 @@ import SportsNutritionAdminPage from "./pages/SportsNutritionAdminPage";
 import VideoAdminPage from "./pages/VideoAdminPage";
 import SportProductPage from "./pages/SportProductPage";
 import SportProductAdminPage from "./pages/SportProductAdminPage";
+import CartPage from "./pages/CartPage";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/admin/sportpit" element={<SportsNutritionAdminPage/>}/>
           <Route path="/admin/videos" element={<VideoAdminPage/>}/>
           <Route path='/admin/products' element={<SportProductAdminPage/>}/>
+          <Route path='/cart' element={<CartPage/>}/>
+          <Route path='/order' element={<OrderPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

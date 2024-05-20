@@ -1,31 +1,25 @@
 import { AppBar, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import cl from '../Style/MyHeader.module.css'
 
 function HeaderAdmin() {
     const navigate = useNavigate();
   return (
-    <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
-
-          </Typography>
-          <List component="nav" aria-labelledby="main navigation" sx={{ display: 'flex', justifyContent: 'center' }}>
-            <ListItem button onClick={()=>{(navigate("/admin/"))}}>
-              <ListItemText primary="Статьи" />
-            </ListItem>
-            <ListItem button onClick={()=>{(navigate("/admin/sportpit"))}}>
-              <ListItemText primary="Спортивное Питание" />
-            </ListItem>
-            <ListItem button onClick={()=>{(navigate("/admin/products"))}}>
-              <ListItemText primary="Спорт Товары" />
-            </ListItem>
-            <ListItem button onClick={()=>{(navigate("/admin/videos"))}}>
-              <ListItemText primary="Видео" />
-            </ListItem>
-          </List>
-        </Toolbar>
-      </AppBar>
+    <header>
+      <div className={cl.container}>
+        <div className={cl.icon}>
+          <h2 className={cl.title} onClick={() => {(navigate("/admin/"))}}>GymBro<span className={cl.title_admin}> admin</span></h2>
+        </div>
+        <div className={cl.buttons}>
+          <button className={cl.btn} onClick={()=> {(navigate("/admin/"))}}>Статьи</button>
+          <button className={cl.btn} onClick={()=> {(navigate("/admin/sportpit"))}}>Спортивное Питание</button>
+          <button className={cl.btn} onClick={()=> {(navigate("/admin/products"))}}>Спорт Товары</button>
+          <button className={cl.btn} onClick={()=> {(navigate("/admin/videos"))}}>Видео</button>
+        </div>
+      </div>
+      <div className={cl.line_admin}></div>
+    </header>
   )
 }
 

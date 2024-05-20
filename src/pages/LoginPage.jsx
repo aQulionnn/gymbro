@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import {
-  Button,
-  TextField,
-  Container,
-  CssBaseline,
-} from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import style from '../Style/LoginPage.module.css'
+import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -19,40 +16,32 @@ const LoginPage = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div style={{ marginTop: "150px" }}>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email"
-            name="email"
-            autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button type="submit" fullWidth variant="contained" color="primary">
+    <div className={style.main}>
+      <div className={style.container}>
+        <h1 className={style.login} align='center'>Login</h1>
+        <form className={style.form} onSubmit={handleSubmit}>
+          <div className={style.user}>
+            <input 
+              type="text" 
+              placeholder="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <PersonIcon />
+          </div>
+          <div className={style.password}>
+            <input 
+              type="password" 
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <LockIcon />
+          </div>
+          <button className={style.btn} type="submit">
             Login
-          </Button>
+          </button>
         </form>
       </div>
-    </Container>
+    </div>
   );
 };
 

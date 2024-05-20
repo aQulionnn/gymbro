@@ -34,13 +34,14 @@ function SportsNutritionPage() {
         <CircularProgress />
       ) : (
         <div style={{
-              display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
-          {products.map((product, index) => (
-            <div style={{boxShadow: '0px 0px 20px 2px rgba(0,0,0,0.2)', borderRadius:'15px', overflow:'hidden'}}>
+              display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px', marginTop: '25px'}}>
+          {products.map((product) => (
+            <div>
               <MySportsNutrition 
+                id={product.id}
                 name={product.name}
                 desc={product.desc}
-                price={product.price+' тг'}
+                price={product.price}
                 photo={product.photo}
               />
             </div>

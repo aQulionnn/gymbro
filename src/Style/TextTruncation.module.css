@@ -1,0 +1,8 @@
+.read{
+  color: #0096c7;
+  font-size: 14px;
+}
+
+.read:hover{
+  cursor: pointer;
+}

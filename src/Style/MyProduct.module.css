@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+
+.container{
+  display: grid;
+  width: 250px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  
+}
+
+.container *{
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+.top-section{
+  height: 250px;
+  border-radius: 0 0px 30px 30px;
+  overflow: hidden;
+  border: 1px solid #F5F1DB;
+}
+
+.top-section img{
+  height: 100%;
+}
+
+.bottom-section{
+  padding: 10px 20px;
+  line-height: 2;
+}
+
+.bottom-section h3{
+  text-align: center;
+}
+
+.bottom-section p{
+  display: flex;
+  align-items: center;
+  font-family: "Sedgwick Ave";
+}
+
+.bottom-section button{
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+}
+
+.bottom-section button:hover{
+  cursor: pointer;
+  color: #2b9348;
+}

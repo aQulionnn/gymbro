@@ -1,0 +1,27 @@
+.main{
+  display: grid;
+  justify-content: center;
+  font-family: 'Kanit';
+  font-size: 18px;
+}
+
+.container{
+  width: 640px;
+  padding: 15px 30px;
+}
+
+.container img{
+  width: 100%;
+  filter: contrast(75%) brightness(115%);
+}
+
+.container p{
+  padding: 5px 15px 5px 15px;
+  line-height: 2;
+}
+
+.container h2{
+  text-align: center;
+  font-weight: 300;
+  padding: 0 30px;
+}

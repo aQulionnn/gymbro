@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextTruncation from './TextTruncation';
 import { useNavigate } from 'react-router-dom';
+import style from '../Style/MyPost.module.css'
 
 export default function MyPost(props) {
   const navigate = useNavigate()
@@ -14,28 +15,14 @@ export default function MyPost(props) {
     console.log(props)
   }, [])
   return (
-    <div>
-      <Card sx={{ width: 345 }}>
-        <CardMedia
-          component='img'
-          sx={{ height: 160 }}
-          image={'https://localhost:7209/api/File/'+props.photo}
-          title={props.title}
-        />
-        <CardContent sx={{paddingBottom: '0'}}>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <TextTruncation text={props.text} maxLength='150'/>
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" color='primary' onClick={() => navigate(`/post/${props.id}`)}>
-            Читать
-          </Button>
-        </CardActions>
-      </Card>
+    <div className={style.main}>
+      <div className={style.top_section}>
+        <h5>{props.title}</h5>
+      </div>
+      <img src={'https://localhost:7209/api/File/'+props.photo}/>
+      <div className={style.bottom_section}>
+        <TextTruncation text={props.text} maxLength='200' onClick={() => navigate(`/post/${props.id}`)}/>
+      </div>
     </div>
   );
 }

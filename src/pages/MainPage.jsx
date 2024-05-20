@@ -5,6 +5,7 @@ import { getPosts } from '../request';
 import { useNavigate } from 'react-router-dom';
 import MyHeader from '../components/MyHeader';
 import MyPost from '../components/MyPost';
+import style from '../Style/MainPage.module.css'
 
 function MainPage() {
   const [posts, setPosts] = useState([]);
@@ -31,9 +32,9 @@ function MainPage() {
       {loading ? (
         <CircularProgress />
       ) : (
-        <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
+        <div className={style.container}>
           {posts.map((post) => (
-            <div style={{boxShadow: '0px 0px 20px 2px rgba(0,0,0,0.2)', borderRadius:'15px', overflow:'hidden'}}>
+            <div >
               <MyPost 
                 id={post.id}
                 title={post.title} 

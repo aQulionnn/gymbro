@@ -1,0 +1,81 @@
+.main{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: url('../static/svg/loginback.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+}
+
+.container{
+  width: 400px;
+  height: 300px;
+  padding: 20px 15px;
+  border: 1px solid white;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  align-items: center;
+  display: grid;
+}
+
+.login{
+  color: #fff;
+  margin: 0;
+}
+
+.btn{
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  height: auto;
+  border-radius: 25px;
+  border: none;
+  margin-top: 10px;
+  border: 1px solid #fff;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+}
+
+.form{
+  display: grid;
+  gap: 20px;
+}
+
+
+.form input::-webkit-input-placeholder{
+  color: #fff
+}
+
+.user, .password{
+  height: 45px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 25px;
+  padding: 0 20px;
+  color: #fff;
+  outline: none;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.form input{
+  height: 45px;
+  width: 90%;
+  outline: none;
+  border: none;
+  margin-right: auto;
+  background-color: transparent;
+}
+

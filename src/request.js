@@ -83,6 +83,7 @@ export const editSportsNutrition = async (product) => {
 }
 
 
+
 export const getAllSportsProducts = async () => {
   const response = await axios.get("https://localhost:7209/api/Product/all/products")
   return response.data
@@ -99,8 +100,7 @@ export const addSportsProducts = async (product) => {
 }
 
 export const editSportsProducts = async (product) => {
-  console.log(product);
-  const response = await axios.put("https://localhost:7209/api/Product/update/"+ product.id, product)
+  const response = await axios.put("https://localhost:7209/api/Product/update?id="+ product.id, product)
   return response.data
 }
 
@@ -117,11 +117,19 @@ export const deleteVideo = async (id) => {
 }
 
 export const addVideo = async (video) => {
+  console.log(video)
   const response = await axios.post("https://localhost:7209/api/Tutorial", video)
   return response.data
 }
 
 export const editVideo = async (video) => {
   const response = await axios.put("https://localhost:7209/api/Tutorial/"+ video.id, video)
+  return response.data
+}
+
+
+
+export const addOrder = async(order) => {
+  const response = await axios.post('https://localhost:7209/api/Order', order)
   return response.data
 }

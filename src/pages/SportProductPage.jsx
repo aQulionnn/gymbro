@@ -32,13 +32,14 @@ function SportProductPage() {
         <CircularProgress />
       ) : (
         <div style={{
-              display: 'flex', justifyContent: 'space-evenly', marginTop: '50px'}}>
+              display: 'flex', flexWrap: 'wrap',justifyContent: 'center', marginTop: '25px', gap: '30px'}}>
           {products.map((product) => (
-            <div style={{boxShadow: '0px 0px 20px 2px rgba(0,0,0,0.2)', borderRadius:'15px', overflow:'hidden'}}>
+            <div>
               <MyProduct
+                id={product.id}
                 name={product.name} 
                 desc={product.desc} 
-                price={product.price+' тг'}
+                price={product.price}
                 photo={product.photo}
               />
             </div>
